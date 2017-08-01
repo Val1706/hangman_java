@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.*;
 import java.util.Scanner;
 
@@ -11,9 +9,7 @@ public class Hangman {
 
     public static void main(String[] args) throws IOException {
 
-
         String country = "Poland".toUpperCase();
-      
         List country_with_dash = make_dashboard(country);
 
         while(true) {
@@ -22,16 +18,21 @@ public class Hangman {
             Scanner scan = new Scanner(System.in);
             String quess = scan.next().toUpperCase();
 
-            if (quess.matches("[A-Za-z]{1}")) {
+            if (quess.equals(country)) {
+                break;
 
-                List added_letters_to_country = set_new_letters(country_with_dash, quess, country);
+            }else {
+                if (quess.matches("[A-Za-z]{1}")){
 
-                String country_with_new_letters = show_updated_dash_word(added_letters_to_country);
-                System.out.println(country_with_new_letters);
+                    List added_letters_to_country = set_new_letters(country_with_dash, quess, country);
 
-                if (quess.equals(country) | country_with_new_letters.equals(country)) {
+                    String country_with_new_letters = show_updated_dash_word(added_letters_to_country);
+                    System.out.println(country_with_new_letters);
 
-                    break;
+                    if (country_with_new_letters.equals(country)) {
+                        break;
+                    }
+
                 }
             }
         }
@@ -65,7 +66,7 @@ public class Hangman {
 
         String new_dash = String.join("", dash_word);
 
-        return new_dash;
+        return new_dash.toUpperCase();
     }
 
 }
