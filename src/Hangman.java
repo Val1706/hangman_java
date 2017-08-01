@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.Scanner;
 
 
 
@@ -9,18 +10,32 @@ import java.util.*;
 public class Hangman {
 
     public static void main(String[] args) throws IOException {
-        // write your code here
 
-        String country = "Africa";
-        String big_country = country.toUpperCase();
 
-        List secret_word = make_dashboard(big_country);
-        List updated_word = set_new_letters(secret_word,"A", big_country);
+        String name = "Poland";
+        String country = name.toUpperCase();
 
-        String new_word = show_updated_dash_word(updated_word);
-        System.out.println(new_word);
-        
+        List country_with_dash = make_dashboard(country);
 
+        while(true) {
+
+            System.out.println("Please type a letter: ");
+            Scanner scan = new Scanner(System.in);
+            String quess = scan.next().toUpperCase();
+
+            if (quess.matches("[A-Za-z]{1}")) {
+
+                List added_letters_to_country = set_new_letters(country_with_dash, quess, country);
+
+                String country_with_new_letters = show_updated_dash_word(added_letters_to_country);
+                System.out.println(country_with_new_letters);
+
+                if (quess.equals(country) | country_with_new_letters.equals(country)) {
+
+                    break;
+                }
+            }
+        }
     }
 
     private static List make_dashboard(String country){
@@ -39,7 +54,7 @@ public class Hangman {
     private static List set_new_letters(List dash_word, String quess, String country){
 
         for(int i=0; i<country.length();i++) {
-            if(quess.charAt(0)== country.charAt(i)){
+            if(quess.charAt(0) == country.charAt(i)){
                 dash_word.set(i, quess);
 
             }
@@ -49,7 +64,7 @@ public class Hangman {
 
     private static String show_updated_dash_word(List dash_word){
 
-        String new_dash = String.join(" ", dash_word);
+        String new_dash = String.join("", dash_word);
 
         return new_dash;
     }
