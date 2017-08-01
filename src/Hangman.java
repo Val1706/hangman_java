@@ -12,9 +12,8 @@ public class Hangman {
     public static void main(String[] args) throws IOException {
 
 
-        String name = "Poland";
-        String country = name.toUpperCase();
-
+        String country = "Poland".toUpperCase();
+      
         List country_with_dash = make_dashboard(country);
 
         while(true) {
