@@ -1,13 +1,8 @@
-import java.io.IOException;
 import java.util.*;
-import java.util.Scanner;
-
-
-
 
 public class Hangman {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
         String country = "Poland".toUpperCase();
         List country_with_dash = make_dashboard(country);
