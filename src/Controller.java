@@ -22,7 +22,6 @@ public class Controller {
             while (current_game) {
 
                 System.out.println("Yous score " + player.score);
-                View.show_quesses(player.lifes);
 
                 player.quess = View.get_question();
 
@@ -45,8 +44,9 @@ public class Controller {
                         player.add_score();
 
                     } else {
+                        View.show_hangman(player.lifes);
                         player.minus_score_and_lifes();
-                        View.no_letter_msg();
+
                     }
                     player.add_used_letters();
 
@@ -59,11 +59,12 @@ public class Controller {
                         player.add_score_if_full_word_is_quessed();
                         success = true;
                     } else {
+                        View.show_hangman(player.lifes);
                         player.minus_score_and_lifes();
-                        View.no_letter_msg();
-
                     }
                 }
+                View.show_hangman(player.lifes);
+
                 if (success) {
 
                     View.win_message();
@@ -74,8 +75,6 @@ public class Controller {
                     View.show_hint_country(hangman.country);
 
                 } else if (player.lifes == 0) {
-
-                    View.lost_message();
 
                     player.name = View.get_name();
                     Database.write_record(player.name, player.score);
@@ -102,5 +101,7 @@ public class Controller {
         return country_with_new_letters;
     }
 }
+
+
 
 
