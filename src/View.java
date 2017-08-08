@@ -64,11 +64,94 @@ public class View {
         System.out.println("You lost");
     }
 
-    public static void show_quesses(Integer quesses) {
+    public static void show_quesses(Integer lifes) {
 
-        String result = String.format("You have %1$d quesses", quesses);
+        String result = String.format("You have %1$d quesses", lifes);
         System.out.println(result);
     }
 
-    }
+    public static void show_hangman(Integer lifes) {
 
+        no_letter_msg();
+        show_quesses(lifes);
+
+        if (lifes == 6) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("___|___");
+            System.out.println();
+        }
+        if (lifes == 5){
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("___|___");
+        }
+        if (lifes == 4){
+            System.out.println("   ____________");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   | ");
+            System.out.println("___|___");
+        }
+        if (lifes == 3){
+
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
+            System.out.println("   |        |     |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("   |");
+            System.out.println("___|___");
+        }
+        if (lifes == 2){
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
+            System.out.println("   |        |     |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |           |");
+            System.out.println("   |           |");
+            System.out.println("   |");
+            System.out.println("___|___");
+        }
+        if (lifes == 1){
+
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
+            System.out.println("   |        |     |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |           |");
+            System.out.println("   |           |");
+            System.out.println("   |          / \\ ");
+            System.out.println("___|___      /   \\");
+        }
+        if (lifes == 0){
+            lost_message();
+
+            System.out.println("   ____________");
+            System.out.println("   |          _|_");
+            System.out.println("   |         /   \\");
+            System.out.println("   |        |     |");
+            System.out.println("   |         \\_ _/");
+            System.out.println("   |          _|_");
+            System.out.println("   |         / | \\");
+            System.out.println("   |          / \\ ");
+            System.out.println("___|___      /   \\");
+        }
+
+    }
+}
