@@ -22,8 +22,10 @@ public class Capital {
 
         try {
 
+            String userHome = System.getProperty("user.home");
+
             //creating File instance to reference text file in Java
-            File text = new File("/Users/valik/Desktop/hangman_project/src/countries_and_capitals.txt");
+            File text = new File(userHome + "/Desktop/hangman_project/src/countries_and_capitals.txt");
 
             //Creating Scanner instnace to read File in Java
             Scanner scnr = new Scanner(text);
@@ -48,7 +50,4 @@ public class Capital {
         return null;
     }
     }
-
-
-
 
