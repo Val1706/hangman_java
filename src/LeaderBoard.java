@@ -9,8 +9,9 @@ public class LeaderBoard {
 
         try {
 
-
-            FileWriter fw = new FileWriter("/Users/valik/Desktop/hangman_project/src/records.txt", true);
+            String userHome = System.getProperty("user.home");
+            
+            FileWriter fw = new FileWriter(user.home + "/Desktop/hangman_project/src/records.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(score.toString());
