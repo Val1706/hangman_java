@@ -31,7 +31,9 @@ public class LeaderBoard {
 
 
         try {
-            File text = new File("/Users/valik/Desktop/hangman_project/src/records.txt");
+
+            String userHome = System.getProperty("user.home");
+            File text = new File(userHome + "/Desktop/hangman_project/src/records.txt");
             Scanner scnr = new Scanner(text);
 
             String format = "|%1$-10s|%2$-10s|%3$-10s|%4$-20s\n";
@@ -75,5 +77,4 @@ public class LeaderBoard {
         }
     }
 }
-
 
